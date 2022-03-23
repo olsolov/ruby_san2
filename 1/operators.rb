@@ -23,3 +23,21 @@ puts eq_4
 puts eq_5
 puts eq_6
 puts "#{eq_5}" + ' ' + "#{eq_6}"
+
+puts '___'
+
+puts (2 + 5) * 10
+puts false && true
+puts false && false
+puts true && true
+
+puts '___'
+
+puts (1 < 2) && (5 < 6)
+puts (1 > 2) && (5 < 6)
+puts (1 > 2) && (5 > 6)
+
+puts '___'
+
+puts 1 > 2 || 3 > 2
+puts 1 < 2 || 3 < 2
