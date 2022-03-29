@@ -1,6 +1,7 @@
 class Item
-
   attr_accessor :price, :name
+
+  @@discount = 0.1
 
   def initialize(options = {})
     @price = options[:price]
@@ -14,6 +15,18 @@ class Item
     else
       puts 'Nothing to show'
     end
+  end
+
+  def self.discount
+    if Time.now.month == 3
+      @@discount += 0.3
+    else
+      @@discount
+    end
+  end
+
+  def price
+    @price - @price * self.class.discount
   end
 
 end
