@@ -16,3 +16,4 @@ order.add_item item2
 order.add_item item3
 order.remove_item
 p order.items.size
+p order.count_valid_items
