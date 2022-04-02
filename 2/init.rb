@@ -1,12 +1,18 @@
-Dir["*.rb"].each { |file| require_relative file unless file == "init.rb" }
+#Dir['*.rb'].each { |file| require_relative file unless file == 'init.rb' }
 
-item1 = VirtualItem.new({price: 202.0, weight: 120, name: 'Car'})
-item2 = RealItem.new({price: 202.0, weight: 220, name: 'Cycle'})
-item3 = RealItem.new({price: 90.0, weight: 320, name: 'Bike'})
+#Dir['*.rb'].each do |file|
+#  require_relative file unless file == 'init.rb'
+#  puts file.to_s
+#end
 
-cart = Cart.new
-cart.add_item item1
-cart.add_item item2
-cart.add_item item3
+require_relative 'item'
+require_relative 'cart'
+require_relative 'order'
+require_relative 'virtual_item'
+require_relative 'real_item'
+require_relative 'item_container'
 
-p cart
+@items = []
+@items << VirtualItem.new({ price: 202.0, weight: 300, name: 'car' })
+@items << RealItem.new({ price: 202.0, weight: 300, name: 'cycle' })
+@items << RealItem.new({ price: 202.0, weight: 300, name: 'bike' })
