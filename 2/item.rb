@@ -1,13 +1,13 @@
 class Item
-
-  attr_reader :real_price, :name
-  attr_writer :price
+  attr_reader :real_price
+  attr_accessor :name, :price
 
   @@discount = 0.1
 
   def initialize(options = {})
     @real_price = options[:price]
     @name = options[:name]
+    @price = options[:price]
   end
 
   def info
@@ -28,25 +28,23 @@ class Item
   end
 
   def price
-    if @real_price
-      (@real_price - @real_price * self.class.discount) + tax
-    end
+    (@real_price - @real_price * self.class.discount) + tax if @real_price
   end
 
   private
 
   def tax
-    type_tax = if self.class == VirtualItem
-                1
+    type_tax = if instance_of?(VirtualItem)
+                 1
                else
-                2
+                 2
                end
     cost_tax = if @real_price > 5
-                  @real_price * 0.2
-                else
-                  @real_price * 0.1
-                end
-    return cost_tax + type_tax
-  end
+                 @real_price * 0.2
+               else
+                 @real_price * 0.1
+               end
 
+    cost_tax + type_tax
+  end
 end

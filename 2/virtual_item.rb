@@ -1,4 +1,3 @@
 require_relative 'item'
 
-class VirtualItem < Item
-end
+class VirtualItem < Item;end
