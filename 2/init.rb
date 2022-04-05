@@ -14,7 +14,7 @@ require_relative 'item_container'
 require_relative 'string'
 
 @items = []
-@items << RealItem.new({
+@items << VirtualItem.new({
                          price: 240.0,
                          weight: 290,
                          name: 'car'

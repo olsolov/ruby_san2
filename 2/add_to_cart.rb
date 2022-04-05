@@ -9,4 +9,8 @@ ARGV.each do |arg|
 end
 
 cart.read_from_file
-cart.save_to_file
+begin
+  cart.save_to_file
+rescue ItemNotSupported
+  puts 'You have VirtualItem in your cart'
+end
