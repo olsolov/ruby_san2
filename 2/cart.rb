@@ -1,10 +1,13 @@
 require_relative 'item_container'
 require_relative 'item_not_supported'
+require_relative 'antique_item'
+require_relative 'virtual_item'
 
 class Cart
   attr_reader :items, :owner
 
   include ItemContainer
+  UNSUPPORTED_ITEM = %w[AntiqueItem VirtualItem]
 
   def initialize(owner)
     @items = []
@@ -14,7 +17,7 @@ class Cart
   def save_to_file
     File.open(@owner.to_s + '_cart.txt', 'w') do |f|
       @items.each do |i|
-        raise ItemNotSupported if i.class == VirtualItem
+        raise ItemNotSupported if UNSUPPORTED_ITEM.include? i.class
         f.puts i
       end
     end

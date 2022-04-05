@@ -12,18 +12,19 @@ require_relative 'virtual_item'
 require_relative 'real_item'
 require_relative 'item_container'
 require_relative 'string'
+require_relative 'antique_item'
 
 @items = []
 @items << VirtualItem.new({
                          price: 240.0,
                          weight: 290,
-                         name: 'car'
+                         name: 'virt'
                        })
 
-@items << RealItem.new({
+@items << AntiqueItem.new({
                          price: 270.0,
                          weight: 300,
-                         name: 'bike'
+                         name: 'ant'
                        })
 
 @items << RealItem.new({
@@ -31,3 +32,9 @@ require_relative 'string'
                          weight: 310,
                          name: 'cycle'
                        })
+
+@items << RealItem.new({
+                        price: 250.0,
+                        weight: 310,
+                        name: 'bike'
+                      })

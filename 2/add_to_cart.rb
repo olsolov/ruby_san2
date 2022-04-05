@@ -1,5 +1,6 @@
 require_relative 'init'
 require_relative 'cart'
+require_relative 'item_not_supported'
 
 owner = ARGV.delete_at(0)
 cart = Cart.new(owner)
@@ -12,5 +13,6 @@ cart.read_from_file
 begin
   cart.save_to_file
 rescue ItemNotSupported
-  puts 'You have VirtualItem in your cart'
+  puts "  You have VirtualItem or AntiqueItem in your cart
+  Unsupported Items type: #{Cart::UNSUPPORTED_ITEM}"
 end
