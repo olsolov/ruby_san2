@@ -7,7 +7,7 @@ class Cart
   attr_reader :items, :owner
 
   include ItemContainer
-  UNSUPPORTED_ITEM = %w[AntiqueItem VirtualItem]
+  UNSUPPORTED_ITEM = [AntiqueItem, VirtualItem]
 
   def initialize(owner)
     @items = []
@@ -18,6 +18,7 @@ class Cart
     File.open(@owner.to_s + '_cart.txt', 'w') do |f|
       @items.each do |i|
         raise ItemNotSupported if UNSUPPORTED_ITEM.include? i.class
+
         f.puts i
       end
     end

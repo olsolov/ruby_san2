@@ -38,3 +38,6 @@ require_relative 'antique_item'
                         weight: 310,
                         name: 'bike'
                       })
+
+cart = Cart.new('amg')
+cart.all_cars

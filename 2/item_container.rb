@@ -30,6 +30,10 @@ module ItemContainer
     def count_valid_items
       @items.count { |i| i.price }
     end
+
+    def method_missing(method_name)
+      puts method_name =~ /⌃all_/ ? "show all items" : super
+    end
   end
 
   def self.included(classes)

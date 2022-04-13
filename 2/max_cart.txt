@@ -1,2 +1,0 @@
-#<VirtualItem:0x000055fd5e9c58e0>
-#<AntiqueItem:0x000055fd5e9c5840>
