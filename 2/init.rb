@@ -40,4 +40,24 @@ require_relative 'antique_item'
                       })
 
 cart = Cart.new('amg')
-cart.all_cars
+
+cart.add_item(RealItem.new({
+                price: 250.0,
+                weight: 310,
+                name: 'car'
+              }))
+
+cart.add_item(RealItem.new({
+                price: 250.0,
+                weight: 310,
+                name: 'bike'
+              }))
+
+cart.add_item(RealItem.new({
+                price: 250.0,
+                weight: 310,
+                name: 'cycle'
+              }))
+
+p cart.all_cars
+p cart.all_bikes

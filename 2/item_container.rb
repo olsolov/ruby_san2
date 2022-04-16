@@ -1,5 +1,4 @@
 module ItemContainer
-
   module ClassMethods
     MIN_PRICE = 5
 
@@ -32,7 +31,17 @@ module ItemContainer
     end
 
     def method_missing(method_name)
-      puts method_name =~ /⌃all_/ ? "show all items" : super
+      if /⌃all_/ =~ method_name
+        show_all_item_with_name(method_name.to_s
+                                           .sub(/⌃all_/, '')
+                                           .chomp('s'))
+      end
+    end
+
+    private
+
+    def show_all_item_with_name(name)
+      @items.map { |i| i if name == i.name }.compact
     end
   end
 
