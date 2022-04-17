@@ -13,6 +13,8 @@ require_relative 'real_item'
 require_relative 'item_container'
 require_relative 'string'
 require_relative 'antique_item'
+require 'active_support'
+require 'active_support/core_ext'
 
 @items = []
 @items << VirtualItem.new({
@@ -59,5 +61,12 @@ cart.add_item(RealItem.new({
                 name: 'cycle'
               }))
 
-p cart.all_cars
-p cart.all_bikes
+p cart.kind_of? Cart
+p @items.first.kind_of? Item
+p @items.second.kind_of? Item
+p @items.third.kind_of? Item
+p "_____"
+p @items.first.respond_to? :price
+p "_____"
+p @items.first.send :tax
+p @items.first.tax
