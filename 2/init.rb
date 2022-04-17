@@ -4,17 +4,11 @@
 #  require_relative file unless file == 'init.rb'
 #  puts file.to_s
 # end
+require_relative 'store_application'
 
-require_relative 'item'
-require_relative 'cart'
-require_relative 'order'
-require_relative 'virtual_item'
-require_relative 'real_item'
-require_relative 'item_container'
-require_relative 'string'
-require_relative 'antique_item'
-require 'active_support'
-require 'active_support/core_ext'
+StoreApplication.new
+StoreApplication.new
+StoreApplication.new
 
 @items = []
 @items << VirtualItem.new('virt', price: 240.0, weight: 290)
