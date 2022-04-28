@@ -6,9 +6,19 @@
 # end
 require_relative 'store_application'
 
-StoreApplication.new
-StoreApplication.new
-StoreApplication.new
+StoreApplication.set do |app|
+  app.name        = 'Ruby App'
+  app.environment = :development
+
+  app.admin do |admin|
+    admin.email = 'admin@email.com'
+    admin.login = 'admin'
+  end
+end
+
+p StoreApplication.environment
+p StoreApplication.name
+p StoreApplication.admin.email
 
 @items = []
 @items << VirtualItem.new('virt', price: 240.0, weight: 290)
